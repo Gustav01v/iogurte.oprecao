@@ -1,15 +1,16 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, TextInput, TouchableOpacity} from 'react-native';
+import { StyleSheet, Text, View, TextInput, TouchableOpacity, Modal} from 'react-native';
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text style={styles.texto}>Cadastro</Text>
-      <TextInput style={styles.cadastro} placeholder='Seu E-mail'/>
-      <TextInput style={styles.cadastro} placeholder='Seu Nome'/>
-      <TextInput style={styles.cadastro} placeholder='Seu Numero'/>
-      <TextInput style={styles.cadastro} placeholder='Sua Turma'/>
-      
+      <Modal style={styles.Modal}>
+        <Text style={styles.texto}>Cadastro</Text>
+        <TextInput style={styles.cadastro} placeholder='Seu E-mail'/>
+        <TextInput style={styles.cadastro} placeholder='Seu Nome'/>
+        <TextInput style={styles.cadastro} placeholder='Seu Numero'/>
+        <TextInput style={styles.cadastro} placeholder='Sua Turma'/>
+      </Modal>
       <Text>
         <TouchableOpacity style={styles.botao1}>
           <Text style={styles.text}>Enviar</Text>
@@ -64,5 +65,12 @@ const styles = StyleSheet.create({
 
   g: {
     color: '#555'
-  }
+  },
+
+  Modal: {
+    backgroundColor: '#6a6a6b',
+    borderRadius: '27px',
+    borderColor: 'white',
+    borderBottonColor: '#dddddd',
+  } 
 });
