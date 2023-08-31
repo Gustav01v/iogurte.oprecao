@@ -1,76 +1,79 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, TextInput, TouchableOpacity, Modal} from 'react-native';
+import React, { useState } from 'react';
+import { View, Text, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
 
-export default function App() {
+const RegistrationPage = () => {
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const handleRegistration = () => {
+ 
+  };
+
   return (
     <View style={styles.container}>
-      <Modal style={styles.Modal}>
-        <Text style={styles.texto}>Cadastro</Text>
-        <TextInput style={styles.cadastro} placeholder='Seu E-mail'/>
-        <TextInput style={styles.cadastro} placeholder='Seu Nome'/>
-        <TextInput style={styles.cadastro} placeholder='Seu Numero'/>
-        <TextInput style={styles.cadastro} placeholder='Sua Turma'/>
-      </Modal>
-      <Text>
-        <TouchableOpacity style={styles.botao1}>
-          <Text style={styles.text}>Enviar</Text>
-        </TouchableOpacity>
-        <Text style={styles.g}>69</Text>
-        <TouchableOpacity style={styles.botao2}>
-          <Text style={styles.text}>Cancelar</Text>
-        </TouchableOpacity>
-      </Text>
-      <StatusBar style="auto" />
+      <Text style={styles.header}>Cadastro</Text>
+      <TextInput
+        placeholder="Nome"
+        style={styles.input}
+        value={name}
+        onChangeText={setName}
+      />
+      <TextInput
+        placeholder="Email"
+        style={styles.input}
+        value={email}
+        onChangeText={setEmail}
+        keyboardType="email-address"
+      />
+      <TextInput
+        placeholder="Senha"
+        style={styles.input}
+        value={password}
+        onChangeText={setPassword}
+        secureTextEntry
+      />
+      <TouchableOpacity style={styles.button} onPress={handleRegistration}>
+        <Text style={styles.buttonText}>Cadastrar</Text>
+      </TouchableOpacity>
     </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#555',
-    alignItems: 'center',
     justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#blue',
+  },
+  header: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    marginBottom: 20,
+  },
+  input: {
+    width: '80%',
+    height: 40,
+    borderColor: 'gray',
+    borderWidth: 1,
+    borderRadius: 5,
+    marginBottom: 10,
+    padding: 10,
+  },
+  button: {
+    backgroundColor: 'blue',
+    padding: 10,
+    borderRadius: 5,
+    marginTop: 20,
+  },
+  buttonText: {
+    color: 'white',
+    fontSize: 16,
+    textAlign: 'center',
   },
 
-  cadastro: {
-    borderColor: '#ffff00',
-    borderBottomColor: '#000',
-    borderRadius: 10,
-    alignItems: 'center'
-  },
-
-  botao1: {
-    borderColor: '#fff',
-    backgroundColor: 'black',
-    borderRadius: 15
-  },
-
-  botao2: {
-    borderColor: '#fff',
-    backgroundColor: 'black',
-    borderRadius: 15
-  },
-
-  text: {
-    color: '#fff',
   
-  },
-
-  texto: {
-    color: '#ff7712',
-    fontSize: '30px',
-    fontWeight: 'bold'
-  },
-
-  g: {
-    color: '#555'
-  },
-
-  Modal: {
-    backgroundColor: '#6a6a6b',
-    borderRadius: '27px',
-    borderColor: 'white',
-    borderBottonColor: '#dddddd',
-  } 
 });
+
+export default RegistrationPage;
